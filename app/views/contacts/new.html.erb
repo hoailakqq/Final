@@ -1,0 +1,36 @@
+  <button type="button" class="btn btn-primary">New Contact</button>
+  <%= form_for @contact, html: {multipart: true } do |f| %>
+    <label class="control-label" for="inputWarning1">name</label><br/>
+    <%= f.text_field :name %><br/>
+    <% if @contact.errors.any? %>
+      <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors[:name].count, 'error')%></h2>
+      <% @contact.errors[:name].each do |a| %>
+          <%= a %>
+      <% end %>
+      </div>
+    <% end %>
+    <label class="control-label" for="inputWarning1">phonenumber</label><br/>
+    <%= f.text_field :phonenumber %><br/>
+    <% if @contact.errors.any? %>
+      <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors[:phonenumber].count, 'error')%></h2>
+      <% @contact.errors[:phonenumber].each do |a| %>
+          <%= a %>
+      <% end %>
+      </div>
+    <% end %>
+    <label class="control-label" for="inputWarning1">address</label><br/>
+    <%= f.text_area :address,size: "60x2" %><br/>
+    <% if @contact.errors.any? %>
+      <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors[:address].count, 'error')%></h2>
+      <% @contact.errors[:address].each do |a| %>
+          <%= a %>
+      <% end %>
+      </div>
+    <% end %>
+    <label class="control-label" for="inputWarning1">noted</label><br/>
+    <%= f.text_area :noted,size: "60x4" %><br>
+    <%= f.submit "create" %>
+  <% end %>

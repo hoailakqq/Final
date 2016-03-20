@@ -1,0 +1,33 @@
+
+<%= form_for @contact, html: {multipart: true } do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group has-warning">
+  <label class="control-label" for="inputWarning1">Tên</label>
+  <span id="helpBlock2" class="help-block"><%= f.text_field :name %></span>
+  </div>
+  <div class="form-group has-warning">
+  <label class="control-label" for="inputWarning1">Số điện thoại</label>
+  <span id="helpBlock2" class="help-block"><%= f.text_field :phonenumber %></span>
+  </div>
+  <div class="form-group has-warning">
+  <label class="control-label" for="inputWarning1">Địa Chỉ</label>
+  <span id="helpBlock2" class="help-block"=><%= f.text_area :address ,size: "60x2"%></span> 
+  </div>
+  <div class="form-group has-warning">
+  <label class="control-label" for="inputWarning1">Ghi chú</label>
+  <span id="helpBlock2" class="help-block"=><%= f.text_area :noted ,size: "60x4"%></span> 
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Lưu số', data: {cofirm: "are you sure ?"}%>
+  </div>
+<% end %>

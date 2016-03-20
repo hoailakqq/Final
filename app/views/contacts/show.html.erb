@@ -1,0 +1,42 @@
+<h2 class="list-group-item list-group-item-info">
+  <%= @contact.name %>
+</h2>
+<div class="contact-address">
+	<p class="panel panel-info">
+	<div class="alert alert-info" role="alert">
+	<table>
+	<tr>
+		<td width="120px" height="50px">
+			số điện thoại
+		</td>	
+		<td>
+			<%=@contact.phonenumber %>
+		</td>
+	</tr>
+	<tr>
+		<td height="50px">
+		địa chỉ liên lạc
+		</td>
+		<td>
+			<%=@contact.address %>
+		</td>
+	</tr>
+	<tr>
+		<td height="50px">
+			ghi chú
+		</td>
+		<td>
+			<%=@contact.noted %>
+		</td>
+	</tr>
+</table>
+</div>
+  </p>
+</div>
+<div class="contact-footer">
+	
+	<% if user_signed_in? && current_user == @contact.user %>
+		<%= link_to 'Edit', edit_contact_path(@contact),class: 'btn btn-warning btn-sm'%>
+		<%= link_to 'Xoá', contact_path(@contact), method: :delete, data: { confirm: 'Bạn có muốn xoá bài này không?' },class: 'btn btn-danger btn-sm' %>
+	<% end %>
+</div>

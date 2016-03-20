@@ -1,0 +1,37 @@
+
+<% if user_signed_in? %> 
+  <% @contacts.each do |f| %>
+    <div class="form-group has-success">
+      <span class="name">
+        <%= link_to truncate(f.name, length: 20), contact_path(f)%>
+      </span>
+      <span id="helpBlock" class="help-block">
+        <%= truncate(f.address, length: 300)%>
+      </span>
+      
+      Đăng bởi <%= f.user.email %>, Cách đây <%= time_ago_in_words(f.created_at) %>
+      <%= link_to "show",contact_path(f)%>
+      <% if current_user.id == f.user.id %>
+        <%= link_to 'Edit', edit_contact_path(f) %>
+      <% end %><br/><br/>
+    </div>
+  <% end %>
+<% else %>
+  <% @contacts.each do |f| %>
+    <div class="form-group has-success">
+    <span class="name">
+        <%= link_to truncate(f.name, length: 20), contact_path(f)%>
+      </span>
+      <span id="helpBlock" class="help-block">
+        <%= truncate(f.address, length: 300)%>
+      </span><br/>
+       
+      
+    Đăng bởi <%= f.user.email %>, Cách đây <%= time_ago_in_words(f.created_at) %>
+    <%= link_to "show",contact_path(f)%>
+    <br/><br/>
+  </div>
+  <% end %>
+<% end %>
+
+<%= paginate @contacts %>
