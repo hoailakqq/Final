@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
     company = Company.find(params[:id])
     company.destroy
 
-    redirect_to my_companys_path
+    redirect_to root_path
   end
 
   def index
