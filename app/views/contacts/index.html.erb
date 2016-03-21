@@ -1,37 +1,86 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color: #4F4F4F">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
+    <li data-target="#myCarousel" data-slide-to="5"></li>
+    <li data-target="#myCarousel" data-slide-to="6"></li>
+    <li data-target="#myCarousel" data-slide-to="7"></li>
+    <li data-target="#myCarousel" data-slide-to="8"></li>
+    <li data-target="#myCarousel" data-slide-to="9"></li>
+  </ol>
 
-<% if user_signed_in? %> 
-  <% @contacts.each do |f| %>
-    <div class="form-group has-success">
-      <span class="name">
-        <%= link_to truncate(f.name, length: 20), contact_path(f)%>
-      </span>
-      <span id="helpBlock" class="help-block">
-        <%= truncate(f.address, length: 300)%>
-      </span>
-      
-      Đăng bởi <%= f.user.email %>, Cách đây <%= time_ago_in_words(f.created_at) %>
-      <%= link_to "show",contact_path(f)%>
-      <% if current_user.id == f.user.id %>
-        <%= link_to 'Edit', edit_contact_path(f) %>
-      <% end %><br/><br/>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active" style="height: 650px">
+      <%= link_to image_tag("amthuc.jpg"),root_path %>
+      <div class="carousel-caption">
+        <h3><span class="glyphicon glyphicon-glass" aria-hidden="true"></span> ẨM THỰC - NHÀ HÀNG</h3>
+      </div>
     </div>
-  <% end %>
-<% else %>
-  <% @contacts.each do |f| %>
-    <div class="form-group has-success">
-    <span class="name">
-        <%= link_to truncate(f.name, length: 20), contact_path(f)%>
-      </span>
-      <span id="helpBlock" class="help-block">
-        <%= truncate(f.address, length: 300)%>
-      </span><br/>
-       
-      
-    Đăng bởi <%= f.user.email %>, Cách đây <%= time_ago_in_words(f.created_at) %>
-    <%= link_to "show",contact_path(f)%>
-    <br/><br/>
+    <div class="item" style="height: 650px">
+      <%= link_to image_tag("nhanghi.jpg"),root_path %>
+      <br><br><br>
+      <div class="carousel-caption">
+        <h3><span class="glyphicon glyphicon-home" aria-hidden="true"></span> NHÀ NGHỈ - KHÁCH SẠN</h3>
+      </div>
+    </div>
+    <div class="item" style="height: 650px">
+      <%= link_to image_tag("thoitrang.jpg"),root_path %>
+      <div class="carousel-caption">
+        <h3><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> THỜI TRANG - SHOPPING</h3>
+      </div>
+    </div>
+    <div class="item" style="height: 650px">
+      <%= link_to image_tag("thethao.jpg"),root_path %>
+      <div class="carousel-caption">
+        <h3><span class="glyphicon glyphicon-music" aria-hidden="true"></span>CAFE - GIẢI TRÍ - THỂ THAO</h3>
+      </div>
+    </div>
+    <div class="item" style="height: 650px">
+      <%= link_to image_tag("yte.jpg"),root_path %>
+      <div class="carousel-caption">
+        <h3><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>Y TẾ - SỨC KHỎE</h3>
+      </div>
+    </div>
+    <div class="item" style="height: 650px">
+      <%= link_to image_tag("dienmay.jpg"),root_path %>
+      <div class="carousel-caption">
+        <h3><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>ĐIỆN MÁY - MUA SẮM</h3>
+      </div>
+    </div>
+    <div class="item" style="height: 650px">
+      <%= link_to image_tag("noithat.jpg"),root_path %>
+      <div class="carousel-caption">
+        <h3><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>CÔNG NGHỆ - NỘI THẤT - VLXD</h3>
+      </div>
+    </div>
+    <div class="item" style="height: 650px">
+      <%= link_to image_tag("giaoduc.jpg"),root_path %>
+      <div class="carousel-caption">
+        <h3><span class="glyphicon glyphicon-book" aria-hidden="true"></span>GIÁO DỤC - ĐÀO TẠO</h3>
+      </div>
+    </div>
+    <div class="item" style="height: 650px">
+      <%= link_to image_tag("vanhoa.jpg"),root_path %>
+      <div class="carousel-caption">
+        <h3><span class="glyphicon glyphicon-camera" aria-hidden="true"></span>văn hóa - DU LỊCH</h3>
+      </div>
+    </div>
+    <div class="item" style="height: 650px">
+      <%= link_to image_tag("nongnghiep.jpg"),root_path %>
+      <div class="carousel-caption">
+        <h3><span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>NÔNG NGHIỆP - TRANG TRẠI</h3>
+      </div>
+    </div>
+    <div class="item" style="height: 650px">
+      <%= link_to image_tag("taichinh.jpg"),root_path %>
+      <div class="carousel-caption">
+        <h3><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>KINH TẾ - TÀI CHÍNH</h3>
+      </div>
+    </div>
   </div>
-  <% end %>
-<% end %>
-
-<%= paginate @contacts %>
+</div>

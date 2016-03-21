@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-	before_action :check_user_signed_in, except: [:show]
+	before_action :check_user_signed_in, except: [:show, :index]
 	def index
 		@contacts = Contact.order(created_at: :desc).page(params[:page])
 	end
