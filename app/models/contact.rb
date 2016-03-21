@@ -3,5 +3,6 @@ class Contact < ActiveRecord::Base
 	validates :address, presence: true
 	validates :phonenumber, presence: true, length: { maximum: 11 }
 	belongs_to :user
-	paginates_per 50
+	belongs_to :category
+	paginates_per 1
 end

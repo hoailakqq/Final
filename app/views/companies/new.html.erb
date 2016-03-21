@@ -1,0 +1,63 @@
+
+  <button type="button" class="btn btn-primary">New Company</button>
+  <%= form_for @company, html: {multipart: true } do |f| %>
+    <label class="control-label" for="inputWarning1">name</label><br/>
+    <%= f.text_field :name %><br/>
+    <% if @company.errors.any? %>
+      <div id="error_explanation">
+      <h2><%= pluralize(@company.errors[:name].count, 'error')%></h2>
+      <% @company.errors[:name].each do |a| %>
+          <%= a %>
+      <% end %>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :image %><br>
+      <%= f.file_field :image%>
+    </div>  
+    <label class="control-label" for="inputWarning1">address</label><br/>
+    <%= f.text_area :address,size: "60x2" %><br/>
+    <% if @company.errors.any? %>
+      <div id="error_explanation">
+      <h2><%= pluralize(@company.errors[:address].count, 'error')%></h2>
+      <% @company.errors[:address].each do |a| %>
+          <%= a %>
+      <% end %>
+      </div>
+    <% end %>
+    <label class="control-label" for="inputWarning1">phonenumber</label><br/>
+    <%= f.text_field :phonenumber%><br/>
+    <% if @company.errors.any? %>
+      <div id="error_explanation">
+      <h2><%= pluralize(@company.errors[:phonenumber].count, 'error')%></h2>
+      <% @company.errors[:phonenumber].each do |a| %>
+          <%= a %>
+      <% end %>
+      </div>
+    <% end %>
+    <label class="control-label" for="inputWarning1">noted</label><br/>
+    <%= f.text_area :noted,size: "60x2" %><br/>
+    <% if @company.errors.any? %>
+      <div id="error_explanation">
+      <h2><%= pluralize(@company.errors[:noted].count, 'error')%></h2>
+      <% @company.errors[:noted].each do |a| %>
+          <%= a %>
+      <% end %>
+      </div>
+    <% end %>
+    <%= f.label :category, 'Danh mục' %>
+    <select class="form-control" name="company[category_id]" id="company_category_id">
+    <option value="1">ẨM THỰC - NHÀ HÀNG</option>
+    <option value="2">NHÀ NGHỈ - KHÁCH SẠN</option>
+    <option value="3">THỜI TRANG - SHOPPING</option>
+    <option value="4">CAFE - GIẢI TRÍ - THỂ THAO</option>
+    <option value="5">Y TẾ - SỨC KHỎE</option>
+    <option value="6">ĐIỆN MÁY - MUA SẮM</option>
+    <option value="7">CÔNG NGHỆ - NỘI THẤT - VLXD</option>
+    <option value="8">GIÁO DỤC - ĐÀO TẠO</option>
+    <option value="9">văn hóa - DU LỊCH</option>
+    <option value="10">NÔNG NGHIỆP - TRANG TRẠI</option>
+    <option value="11">KINH TẾ - TÀI CHÍNH</option>
+    </select>
+    <%= f.submit "create" %>
+  <% end %>

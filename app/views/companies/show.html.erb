@@ -1,0 +1,49 @@
+<h2 class="list-group-item list-group-item-info">
+  
+    <span class="name">
+      <%= link_to truncate(@company.name, length: 20), company_path(@company)%>
+    </span>
+    <div>
+    <%= image_tag @company.image.url(:large)%>
+    
+    <div class="form-group has-success">
+    <table>
+    	<tr>
+    		<td style="width: 250px">
+    			Địa chỉ
+    		</td>
+    		<td>
+	    		<span id="helpBlock" class="help-block">
+	      		<%= truncate(@company.address, length: 300)%>
+	    		</span>
+	    	</td>
+	    </tr>
+	    <tr>
+	    	<td>
+	    		Số điện thoại
+	    	</td>
+	    	<td>
+		    	<span id="helpBlock" class="help-block">
+		    		<%= @company.phonenumber %>
+		    	</span>
+	    	</td>
+	    </tr>
+	    <tr>
+	    	<td>
+	    		Ghi chú
+	    	</td>
+	    	<td>
+	    		<%= @company.noted %>
+	    	</td>
+	    </tr>
+	  </table>
+    </div>
+  </div>
+</h2>
+<div class="company-footer">
+	
+	<% if user_signed_in? && current_user == @company.user %>
+		<%= link_to 'Edit', edit_company_path(@company),class: 'btn btn-warning btn-sm'%>
+		<%= link_to 'Xoá', company_path(@company), method: :delete, data: { confirm: 'Bạn có muốn xoá bài này không?' },class: 'btn btn-danger btn-sm' %>
+	<% end %>
+</div>

@@ -1,0 +1,44 @@
+
+<% if user_signed_in? %> 
+  <% @companies.each do |f| %>
+    <div class="form-group has-success">
+      <span class="name">
+        <%= link_to truncate(f.name, length: 20), company_path(f)%>
+      </span>
+      <div>
+      <%= image_tag f.image.url(:large)%>
+      </div>
+      <span id="helpBlock" class="help-block">
+        <%= truncate(f.address, length: 300)%>
+      </span><br/>
+       
+      
+      <br>
+      Đăng bởi <%= f.user.email %>, Cách đây <%= time_ago_in_words(f.created_at) %>
+      <%= link_to "show",company_path(f)%>
+      <% if current_user.id == f.user.id %>
+        <%= link_to 'Edit', edit_company_path(f) %>
+      <% end %><br/><br/>
+    </div>
+  <% end %>
+<% else %>
+  <% @companies.each do |f| %>
+    <div class="form-group has-success">
+    <span class="name">
+        <%= link_to truncate(f.name, length: 20), company_path(f)%>
+      </span>
+      <div>
+      <%= image_tag f.image.url(:large)%>
+      </div>
+      <span id="helpBlock" class="help-block">
+        <%= truncate(f.address, length: 300)%>
+      </span><br/>
+       
+      
+    Đăng bởi <%= f.user.email %>, Cách đây <%= time_ago_in_words(f.created_at) %>
+    <%= link_to "show",company_path(f)%>
+    <br/><br/>
+  </div>
+  <% end %>
+<% end %>
+<%= paginate @companies %>

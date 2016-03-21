@@ -3,7 +3,18 @@ Rails.application.routes.draw do
   root 'contacts#index'
   resources :contacts
   resources :my_contacts
-  
+  resources :companies
+  get 'homes/amthuc'
+  get 'homes/dienmay'
+  get 'homes/nhanghi'
+  get 'homes/giaoduc'
+  get 'homes/nongnghiep'
+  get 'homes/yte'
+  get 'homes/vanhoa'
+  get 'homes/thoitrang'
+  get 'homes/thethao'
+  get 'homes/taichinh'
+  get 'homes/noithat'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
