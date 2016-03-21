@@ -5,4 +5,12 @@ class Contact < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :category
 	paginates_per 1
+	def self.to_csv(options = {})
+  	CSV.generate(options) do |csv|
+    csv << column_names
+    csv.each do |contact|
+      csv << contact.attributes.values_at(*column_names)
+    end
+  end
+end
 end
