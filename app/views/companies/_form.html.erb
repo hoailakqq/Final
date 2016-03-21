@@ -1,28 +1,32 @@
 
-<%= form_for @article, html: {multipart: true } do |f| %>
-  <% if @article.errors.any? %>
+<%= form_for @company, html: {multipart: true } do |f| %>
+  <% if @company.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
       <ul>
-      <% @article.errors.full_messages.each do |message| %>
+      <% @company.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
   <div class="form-group has-warning">
-  <label class="control-label" for="inputWarning1">Tiêu đề</label>
-  <span id="helpBlock2" class="help-block"><%= f.text_field :title %></span>
+  <label class="control-label" for="inputWarning1">Tên</label>
+  <span id="helpBlock2" class="help-block"><%= f.text_field :name %></span>
   
-  </div>
-  <div class="field">
-      <%= f.label :image %><br>
-      <%= f.file_field :image%>
-    </div> 
-  <div class="form-group has-warning">
-  <label class="control-label" for="inputWarning1">Nội dung</label>
-  <span id="helpBlock2" class="help-block"=><%= f.text_area :content ,size: "60x12"%></span>
-
+  <%= image_tag @company.image.url(:large)%><br>
+  
+  <label class="control-label" for="inputWarning1">Sửa ảnh mới</label>
+    <%= f.file_field :image%>
+    
+  <label class="control-label" for="inputWarning1">Số điện thoại</label>
+  <span id="helpBlock2" class="help-block"><%= f.text_field :phonenumber %></span>
+  
+  <label class="control-label" for="inputWarning1">Địa chỉ</label>
+  <span id="helpBlock2" class="help-block"=><%= f.text_area :address ,size: "60x2"%></span>
+  <label class="control-label" for="inputWarning1">Ghi chú</label>
+  <span id="helpBlock2" class="help-block"=><%= f.text_area :noted ,size: "60x4"%></span>
+  
   
   </div>
   
